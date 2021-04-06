@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import TextField from "@material-ui/core/TextField";
+import { useState } from "react";
+import { Button } from "@material-ui/core";
 
 function App() {
+  const [todoInput, settodoInput] = useState("");
+
+  const addTodo =(e)=>{
+    
+    e.preventDefault()
+     
+    
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> My Todos App </h1>
+      <form>
+      <TextField
+        id="standard-basic"
+        label="Write a todo"
+        className='TextField'
+        onChange={(e) => settodoInput(e.target.value) }
+      />
+      <Button type='submit' variant="contained" onClick={addTodo}>Add</Button>
+      </form>
     </div>
   );
 }
